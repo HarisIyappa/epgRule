@@ -1,0 +1,67 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+ 
+button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+ 
+textarea {
+  width: 100%;
+  height: 100px;
+}
+ 
+input[type="number"] {
+  width: 100px;
+}
+ 
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ 
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  height: 80%;
+  overflow: auto;
+}
+ 
+.condition-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+ 
+.condition-row label {
+  flex: 1;
+  margin-right: 10px;
+}
+ 
+ 
