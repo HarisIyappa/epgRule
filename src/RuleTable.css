@@ -1,0 +1,311 @@
+/* General container styling */
+
+.rule-table-container {
+
+    font-family: 'Roboto', sans-serif;
+  
+    max-width: 80%;
+  
+    margin: 0 auto;
+  
+    background-color: #f7f8fc;
+  
+    border-radius: 10px;
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    padding: 20px;
+  
+    animation: fadeIn 1.2s ease-in-out;
+  
+  }
+   
+  /* Fade-in animation for container */
+  
+  @keyframes fadeIn {
+  
+    from {
+  
+      opacity: 0;
+  
+      transform: translateY(20px);
+  
+    }
+  
+    to {
+  
+      opacity: 1;
+  
+      transform: translateY(0);
+  
+    }
+  
+  }
+   
+  /* Header styling */
+  
+  .header {
+  
+    text-align: center;
+  
+    margin-bottom: 20px;
+  
+    animation: slideIn 1.5s ease-in-out;
+  
+  }
+   
+  .title {
+  
+    font-size: 28px;
+  
+    font-weight: bold;
+  
+    color: #333;
+  
+    position: relative;
+  
+
+  
+  }
+   
+  /* Glowing text animation */
+  
+  @keyframes textGlow {
+  
+    0%, 100% {
+  
+      text-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 15px #007bff;
+  
+    }
+  
+    50% {
+  
+      text-shadow: 0 0 10px #0056b3, 0 0 20px #0056b3, 0 0 25px #0056b3;
+  
+    }
+  
+  }
+   
+  /* Table styling */
+  
+  .rule-table {
+  
+    width: 100%;
+  
+    border-collapse: collapse;
+  
+    margin-top: 20px;
+  
+    font-size: 16px;
+  
+    animation: fadeIn 1.5s ease-in-out;
+  
+  }
+   
+  .rule-table th,
+  
+  .rule-table td {
+  
+    border: 1px solid #ddd;
+  
+    padding: 12px;
+  
+    text-align: left;
+  
+  }
+   
+  .rule-table th {
+  
+    background-color: #f1f3f6;
+  
+    font-weight: bold;
+  
+    animation: popIn 1s ease-in-out;
+  
+  }
+   
+  .rule-table td:hover {
+  
+    background-color: #f7faff;
+  
+    transition: background-color 0.3s ease;
+  
+  }
+   
+  /* Row hover effect */
+  
+  .rule-table tr:hover {
+  
+    transform: scale(1.02);
+  
+    transition: transform 0.2s ease;
+  
+  }
+   
+  /* Button styling */
+  
+  .view-button,
+  
+  .edit-button {
+  
+    background-color: #007bff;
+  
+    color: #fff;
+  
+    border: none;
+  
+    padding: 8px 15px;
+  
+    margin-right: 8px;
+  
+    border-radius: 5px;
+  
+    cursor: pointer;
+  
+    font-size: 14px;
+  
+    transition: all 0.3s ease;
+  
+  }
+   
+  .view-button:hover,
+  
+  .edit-button:hover {
+  
+    background-color: #0056b3;
+  
+    transform: scale(1.1);
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+  }
+   
+  /* Pop-in animation for table headers */
+  
+  @keyframes popIn {
+  
+    from {
+  
+      transform: scale(0.9);
+  
+      opacity: 0;
+  
+    }
+  
+    to {
+  
+      transform: scale(1);
+  
+      opacity: 1;
+  
+    }
+  
+  }
+   
+  /* Add responsive behavior */
+  
+  @media (max-width: 768px) {
+  
+    .rule-table-container {
+  
+      padding: 10px;
+  
+    }
+   
+    .rule-table th,
+  
+    .rule-table td {
+  
+      padding: 8px;
+  
+    }
+   
+    .view-button,
+  
+    .edit-button {
+  
+      padding: 6px 10px;
+  
+      font-size: 12px;
+  
+    }
+  
+  }
+  
+   /* Add Row Button */
+
+.add-row-container {
+
+  margin-top: 20px;
+
+  text-align: center;
+
+}
+ 
+.add-row-button {
+
+  background-color: #28a745;
+
+  color: white;
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+}
+ 
+.add-row-button:hover {
+
+  background-color: #218838;
+
+}
+ 
+/* Input Fields for New Rows */
+
+.rule-table input {
+
+  width: 90%;
+
+  padding: 5px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+  font-size: 14px;
+
+}
+ 
+/* Delete Row Button */
+
+.delete-button {
+
+  background-color: #dc3545;
+
+  color: white;
+
+  border: none;
+
+  padding: 8px 12px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+}
+ 
+.delete-button:hover {
+
+  background-color: #c82333;
+
+}
+
+ 
