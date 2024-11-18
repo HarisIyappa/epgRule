@@ -1,47 +1,51 @@
-import React, { useState } from 'react';
- 
+import React, { useState, useEffect } from 'react';
+
 const EditRuleModal = ({ rule, closeModal }) => {
   const [editedRule, setEditedRule] = useState(rule);
-  const [selectedCondition, setSelectedCondition] = useState(rule["Condition"]);
-  const [result, setResult] = useState(rule["Result"]);
-  const [conditions, setConditions] = useState([{ field: '', expression: '', value: '' }]);
+  const [selectedCondition, setSelectedCondition] = useState(rule["Condition"] || '');
+  const [result, setResult] = useState(rule["Result"] || { "Parameter": "", "End Result": [""] });
+  const [conditions, setConditions] = useState(rule.isNew ? [{ field: '', expression: '', value: '' }] : rule["Conditions"] || []);
   const [ruleType, setRuleType] = useState('Recommendation');
- 
+
+  useEffect(() => {
+    if (rule.isNew) {
+      setEditedRule({ ...rule, "Rule Desc": '' });
+    }
+  }, [rule]);
+
   const handleConditionChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedCondition(selectedValue);
- 
-    // Based on condition selection, update result
+
     if (selectedValue === 'AND') {
       setResult({ "Parameter": "Time Slot", "End Result": ["Prime Time"] });
     } else if (selectedValue === 'OR') {
       setResult({ "Parameter": "Time Slot", "End Result": ["Late Night"] });
     }
   };
- 
+
   const handleFieldChange = (index, event) => {
     const newConditions = [...conditions];
     newConditions[index][event.target.name] = event.target.value;
     setConditions(newConditions);
   };
- 
+
   const addCondition = () => {
     setConditions([...conditions, { field: '', expression: '', value: '' }]);
   };
- 
+
   const deleteCondition = (index) => {
     if (index > 0) {
       const newConditions = conditions.filter((_, i) => i !== index);
       setConditions(newConditions);
     }
   };
- 
+
   const handleSave = () => {
-    // You can integrate saving logic here (e.g., API call to update the rule)
     console.log('Updated Rule:', editedRule);
     closeModal();
   };
- 
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -98,6 +102,7 @@ const EditRuleModal = ({ rule, closeModal }) => {
                 <option value="">Select Expression</option>
                 <option value="<=">&lt;=</option>
                 <option value=">=">&gt;=</option>
+
                 <option value="==">==</option>
                 <option value="!=">!=</option>
               </select>
@@ -145,9 +150,9 @@ const EditRuleModal = ({ rule, closeModal }) => {
             </label>
           </div>
         ))}
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <button style={{ fontSize: 'small' }} onClick={addCondition}>Add More Condition</button>
-          <button style={{ fontSize: 'small' }} onClick={() => deleteCondition(conditions.length - 1)}>Delete</button>
+        <div className="condition-actions">
+          <button onClick={addCondition}>Add More Condition</button>
+          <button onClick={() => deleteCondition(conditions.length - 1)}>Delete</button>
         </div>
         <br />
         <label>
@@ -167,12 +172,9 @@ const EditRuleModal = ({ rule, closeModal }) => {
         <br />
         <button onClick={handleSave}>Save</button>
         <button onClick={closeModal}>Cancel</button>
-       
       </div>
     </div>
   );
 };
- 
+
 export default EditRuleModal;
- 
- 
