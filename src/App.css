@@ -1,67 +1,138 @@
+/* Modal overlay */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', Arial, sans-serif; /* Clean, modern font */
 }
  
+/* Modal content box */
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
+  background-color: #ffffff; /* White background for contrast */
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%; /* Responsive width */
+  max-width: 600px; /* Limit size for large screens */
+  max-height: 90%; /* Ensures it fits on the screen */
+  overflow-y: auto; /* Scrollable content if necessary */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
  
-button {
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
+/* Modal title */
+h2 {
+  font-size: 1.8em;
+  color: #333333;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  text-align: center;
 }
  
-textarea {
-  width: 100%;
-  height: 100px;
+/* Form labels */
+label {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #444444;
 }
  
+/* Input fields, selects, and textarea */
+textarea,
+select,
 input[type="number"] {
-  width: 100px;
-}
- 
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin: 8px 0 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  font-size: 1em;
+  color: #333333;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft inner shadow */
 }
  
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  width: 80%;
-  height: 80%;
-  overflow: auto;
+/* Button styling */
+button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
  
+button:hover {
+  background-color: #0056b3; /* Dark blue */
+  color: #ffffff; /* White text */
+}
+ 
+button:active {
+  background-color: #004080; /* Even darker blue for active state */
+}
+ 
+/* Primary button (Save) */
+button:nth-child(1) {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+ 
+/* Secondary button (Close) */
+button:nth-child(2) {
+  background-color: #f0f0f0;
+  color: #333333;
+  border: 1px solid #cccccc;
+}
+ 
+/* Condition row */
 .condition-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  gap: 15px; /* Space between fields */
+  align-items: center;
+  margin-bottom: 15px;
 }
  
 .condition-row label {
   flex: 1;
-  margin-right: 10px;
+  font-size: 1em;
 }
+ 
+/* Add/Delete Condition buttons */
+.condition-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+ 
+.condition-actions button {
+  background-color: #e0e0e0; /* Light gray */
+  color: #333333;
+}
+ 
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%; /* Slightly smaller width for mobile */
+    max-height: 85%; /* Adjust height for mobile screens */
+    padding: 20px;
+  }
+ 
+  button {
+    font-size: 0.9em; /* Slightly smaller text for buttons on mobile */
+  }
+ 
+  h2 {
+    font-size: 1.5em; /* Smaller title */
+  }
+}
+
  
  
