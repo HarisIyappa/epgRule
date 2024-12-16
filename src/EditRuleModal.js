@@ -4,7 +4,7 @@ const EditRuleModal = ({ rule, closeModal }) => {
   const [editedRule, setEditedRule] = useState(rule);
   const [selectedCondition, setSelectedCondition] = useState(rule["Condition"] || '');
   const [result, setResult] = useState(rule["Result"] || { "Parameter": "", "End Result": [""] });
-  const [conditions, setConditions] = useState(rule.isNew ? [{ field: '', expression: '', value: '' }] : rule["Conditions"] || []);
+  const [conditions, setConditions] = useState(rule["Conditions"] && rule["Conditions"].length > 0 ? rule["Conditions"] : [{ field: '', expression: '', value: '' }]);
   const [ruleType, setRuleType] = useState('Recommendation');
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const EditRuleModal = ({ rule, closeModal }) => {
         <br />
         <label>
           Condition:
-          <select onChange={handleConditionChange}>
+          <select value={selectedCondition} onChange={handleConditionChange}>
             <option value="AND">AND</option>
             <option value="OR">OR</option>
           </select>
@@ -102,7 +102,6 @@ const EditRuleModal = ({ rule, closeModal }) => {
                 <option value="">Select Expression</option>
                 <option value="<=">&lt;=</option>
                 <option value=">=">&gt;=</option>
-
                 <option value="==">==</option>
                 <option value="!=">!=</option>
               </select>
